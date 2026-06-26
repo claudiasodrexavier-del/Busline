@@ -1,0 +1,168 @@
+:root {
+    --primary: #0f2c59;
+    --secondary: #2d3748;
+    --accent: #dac0a3;
+    --success: #38a169;
+    --danger: #e53e3e;
+    --white: #ffffff;
+    --bg-light: #edf2f7;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body { 
+    background-color: var(--bg-light); 
+    color: var(--secondary); 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+.container { width: 90%; max-width: 1100px; margin: 0 auto; }
+
+/* --- HEADER E MENU COM BRILHO --- */
+header { 
+    background: var(--primary); 
+    color: var(--white); 
+    padding: 1.2rem 0; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+header .container { display: flex; justify-content: space-between; align-items: center; }
+
+nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
+
+nav ul { display: flex; list-style: none; gap: 15px; }
+
+nav ul li a { 
+    color: var(--white); 
+    text-decoration: none; 
+    font-weight: 600; 
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de Brilho e Elevação no Menu */
+nav ul li a:hover { 
+    color: var(--accent); 
+    text-shadow: 0 0 10px rgba(218, 192, 163, 0.7);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Linha animada sob o menu */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after { width: 70%; }
+
+/* --- HERO E BOTÕES --- */
+.hero { 
+    background: linear-gradient(rgba(15, 44, 89, 0.8), rgba(15, 44, 89, 0.8)), 
+    url('https://i.ibb.co/gbqdShVv/capa.png') center/cover; 
+    color: white; text-align: center; padding: 100px 0; 
+}
+
+.btn-cta, .btn-sucesso { 
+    display: inline-block; 
+    background: var(--accent); 
+    color: var(--primary); 
+    padding: 12px 28px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    border-radius: 5px; 
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cta:hover, .btn-sucesso:hover { 
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(218, 192, 163, 0.7) (218, 192, 163, 0.7) (218, 192, 163, 0.4);
+    filter: brightness(1.1);
+}
+
+/* --- CARDS E CATALOGO --- */
+.grid-servicos { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+    margin-top: 30px; 
+}
+
+.card-servico { 
+    background: white; 
+    padding: 0 0 20px 0; 
+    border-radius: 12px; 
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    text-align: center; 
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.card-servico:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    border-color: var(--accent);
+}
+
+.card-img { 
+    width: 100%; height: 200px; 
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+.card-servico:hover .card-img { transform: scale(1.08); }
+
+.card-servico h4 { margin: 15px 0 10px; color: var(--primary); }
+
+/* --- ÁREA ADMINISTRATIVA --- */
+.card-box { 
+    background: white; padding: 35px; border-radius: 12px; 
+    margin: 30px auto; max-width: 900px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+}
+
+.text-center { text-align: center; }
+
+.form-group { margin-bottom: 20px; text-align: left; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+.form-group input, .form-group select { 
+    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; 
+    transition: border 0.3s;
+}
+
+.form-group input:focus { border-color: var(--primary); outline: none; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th { background: var(--primary); color: white; padding: 15px; text-align: left; }
+td { padding: 12px; border-bottom: 1px solid #eee; }
+
+.img-mini { width: 50px; height: 50px; object-fit: cover; border-radius: 6px; }
+
+/* --- MODAL E FOOTER --- */
+.modal-overlay { 
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.8); z-index: 1000; backdrop-filter: blur(3px);
+}
+
+.modal-content { 
+    background: white; width: 90%; max-width: 500px; 
+    margin: 8vh auto; padding: 40px; border-radius: 15px; 
+}
+
+footer { background: var(--primary); color: white; text-align: center; padding: 25px; margin-top: auto; }

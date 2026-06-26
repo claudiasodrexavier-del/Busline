@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promoções - Busline Municipal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><img src="imagens/logo.png" alt="Busline Logo" width="100"></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="promocoes.html">Promoções</a></li>
+                    <li><a href="carrinho.html">🛒 Carrinho</a></li>
+                    <li><a href="login.html">Admin</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <h2 class="text-center" style="color: var(--danger);">🔥 Promoções Imperdíveis de Lançamento!</h2>
+        <p class="text-center">Aproveite nossos descontos especiais. Créditos válidos por 90 dias!</p>
+        
+        <div id="listaPromocoes" class="grid-servicos">
+            <div class="card-servico" style="border: 2px dashed var(--danger);">
+                <div style="background-color: var(--danger); color: white; padding: 5px; font-weight: bold;">20% OFF</div>
+                <img src="imagens/logo.png" width="69" alt="Você tem três opções de pagamento!">
+                <h4>50 passagens estudantil (Promocional)</h4>
+                <p><del>R$ 156,00</del> <strong style="color: var(--success); font-size: 1.3rem;">R$ 130,00</strong></p>
+                <button class="btn-sucesso" onclick="adicionarPromocaoAoCarrinho(999, 'Promo', 130.00)">🛒 Incluir no Carrinho</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Busline Municipal - Pelotas</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

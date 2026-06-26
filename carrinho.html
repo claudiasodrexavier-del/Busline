@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Carrinho - Busline</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><img src="imagens/logo2.png" alt="Busline Logo" width="80"> Carrinho de Compras</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalogo.html">Continuar Comprando</a></li>
+                    <li><a href="promocoes.html">Promoções</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card-box" style="max-width: 1000px;">
+            <h2>Suas Passagens</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço Unit.</th>
+                        <th>Quantidade</th>
+                        <th>Validade dos Créditos</th> <th>Subtotal</th>
+                        <th>Remover</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoCarrinho"></tbody>
+            </table>
+            
+            <div class="text-center" style="margin-top: 30px; border-top: 2px solid #eee; padding-top: 20px;">
+                <h3 id="totalCarrinho" style="font-size: 1.8rem; color: var(--primary);">Total: R$ 0,00</h3>
+            </div>
+        </div>
+
+        <div class="card-box" style="max-width: 1000px; margin-top: 20px;">
+            <h3>Forma de Pagamento</h3>
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="metodoPagamento">Selecione como deseja pagar:</label>
+                <select id="metodoPagamento" onchange="alternarCamposPagamento()">
+                    <option value="">-- Selecione uma opção --</option>
+                    <option value="pix">Pix</option>
+                    <option value="debito">Débito em Conta Corrente</option>
+                    <option value="credito">Cartão de Crédito</option>
+                </select>
+            </div>
+
+            <div id="containerPagamento">
+                <div id="campoPix" style="display: none;" class="card-box" style="background: #f7fafc;">
+                    <h4>Pagamento via Pix</h4>
+                    <p>Utilize nossa chave Pix aleatória ou informe sua chave para registro:</p>
+                    <div class="form-group">
+                        <label>Informe sua Chave Pix (CPF, E-mail ou Celular):</label>
+                        <input type="text" id="chavePixInput" placeholder="Insira sua chave Pix">
+                    </div>
+                </div>
+
+                <div id="campoDebito" style="display: none;" class="card-box" style="background: #f7fafc;">
+                    <h4>Dados Bancários (Débito em Conta)</h4>
+                    <div class="form-group">
+                        <label>Banco:</label>
+                        <input type="text" id="bancoInput" placeholder="Ex: Banco do Brasil, Itaú">
+                    </div>
+                    <div class="form-group">
+                        <label>Agência:</label>
+                        <input type="text" id="agenciaInput" placeholder="Ex: 1234">
+                    </div>
+                    <div class="form-group">
+                        <label>Número da Conta Corrente:</label>
+                        <input type="text" id="contaInput" placeholder="Ex: 12345-6">
+                    </div>
+                </div>
+
+                <div id="campoCredito" style="display: none;" class="card-box" style="background: #f7fafc;">
+                    <h4>Dados do Cartão de Crédito</h4>
+                    <div class="form-group">
+                        <label>Número do Cartão:</label>
+                        <input type="text" id="cartaoNumero" placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div class="form-group">
+                        <label>Nome impresso no Cartão:</label>
+                        <input type="text" id="cartaoNome" placeholder="Ex: JOÃO A SILVA">
+                    </div>
+                    <div class="form-group">
+                        <label>Validade (MM/AA):</label>
+                        <input type="text" id="cartaoValidade" placeholder="MM/AA" style="width: 150px;">
+                    </div>
+                    <div class="form-group">
+                        <label>Código de Segurança (CVV):</label>
+                        <input type="password" id="cartaoCVV" placeholder="123" style="width: 100px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 20px;">
+                <button class="btn-sucesso" onclick="finalizarPedido()" style="padding: 15px 30px; font-size: 1.1rem;">Finalizar Compra</button>
+                <button class="btn-perigo" onclick="limparTodoCarrinho()" style="margin-left: 10px;">Esvaziar Carrinho</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <footer>
+        <p>© 2026 Busline Municipal - Pelotas</p>
+    </footer>
+</body>
+</html>
